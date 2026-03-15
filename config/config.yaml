@@ -1,0 +1,8 @@
+storage:
+  actions:      "~/Documents/em-assist/actions.yaml"
+  events:       "~/Documents/em-assist/events.yaml"
+  projects_dir: "~/Documents/em-assist/projects"
+  meetings_dir: "~/Documents/em-assist/meetings"
+  files_dir:    "~/Documents/em-assist/files"
+  profiles_dir: "~/Documents/em-assist/profiles"
+  index:        "~/Documents/em-assist/index.yaml"
