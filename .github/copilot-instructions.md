@@ -9,6 +9,26 @@ Always write back to the file when making changes.
 
 ---
 
+## First-time Setup
+
+If the data directory does not exist yet, scaffold all template files with:
+```bash
+python scripts/init-data.py
+```
+
+This creates `~/Documents/em-assist/` (or the path in `config/config.yaml`) with
+template files for every profile, a sample project, and empty action/event lists.
+Existing files are never overwritten — safe to re-run.
+
+After running it, fill in:
+- `profiles/manager.md` — name, timezone, schedule
+- `profiles/directives.md` — protected time blocks and hard rules
+- `profiles/team/` — one file per direct report (rename `example-person.md`)
+- `projects/` — real projects (rename/delete `example-project.yaml`)
+- `actions.yaml`, `events.yaml`, `profiles/calendar.md`
+
+---
+
 ## Session Startup
 
 Run this at the start of every session:

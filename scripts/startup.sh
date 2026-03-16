@@ -22,7 +22,8 @@ echo "Data directory: $DATA_DIR"
 
 if [[ ! -d "$DATA_DIR" ]]; then
   echo "WARNING: Data directory does not exist: $DATA_DIR"
-  echo "  Create it and initialise your data files before using EM-Assist."
+  echo "  Run the following to scaffold template files and create the directory:"
+  echo "    python scripts/init-data.py"
   exit 1
 fi
 

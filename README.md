@@ -30,35 +30,34 @@ git clone <repo-url> em-assist
 cd em-assist
 ```
 
-### 2. Create the data directory
-
-```bash
-mkdir -p ~/Documents/em-assist/{projects,meetings,files/{documents,reports,notes},profiles/team}
-```
-
-### 3. Set up Python environment
+### 2. Set up Python environment
 
 ```bash
 python3 -m venv .venv
 .venv/bin/pip install -r requirements.txt
 ```
 
-### 4. Initialise your profiles
+### 3. Scaffold the data directory
 
-Create the following files in `~/Documents/em-assist/profiles/`:
+```bash
+.venv/bin/python scripts/init-data.py
+```
 
-| File | Purpose |
-|------|---------|
-| `directives.md` | Hard rules — read by the AI before every decision |
-| `manager.md` | Your identity, style, calendar preferences |
-| `calendar.md` | Public holidays, company holidays, team leave |
-| `environment.md` | Offices, conf rooms, team timezones |
-| `goals.md` | Team OKRs + your personal manager goals |
-| `work-types.md` | EM work-type reference (duration, energy, context) |
+This creates `~/Documents/em-assist/` (or the path in `config/config.yaml`) with template files for every profile, a sample project, and empty action/event lists. **Existing files are never overwritten**, so it is safe to re-run.
 
-See `CLAUDE.md` for the schema and example content for each file.
+Then open each file and fill in your details:
 
-### 5. Run startup
+| File | What to fill in |
+|------|-----------------|
+| `profiles/manager.md` | Your name, timezone, schedule, focus areas |
+| `profiles/directives.md` | Protected time blocks, hard constraints |
+| `profiles/team/` | Rename `example-person.md`; add one file per direct report |
+| `projects/` | Rename or delete `example-project.yaml`; add real projects |
+| `actions.yaml` | Replace the setup placeholders with real actions |
+| `events.yaml` | Add your recurring meetings |
+| `profiles/calendar.md` | Holidays and team leave periods |
+
+### 4. Run startup
 
 ```bash
 bash scripts/startup.sh
@@ -87,6 +86,7 @@ Open this repo in your AI assistant and start talking:
 
 | Script | Purpose |
 |--------|---------|
+| `scripts/init-data.py` | **First-time setup**: scaffold all template data files |
 | `scripts/startup.sh` | Session startup: rebuild index, (future) sync data |
 | `scripts/new-meeting.py <type> [qualifier]` | Scaffold a new meeting note from template |
 | `scripts/reindex.py` | Rebuild `index.yaml` from all data files |
