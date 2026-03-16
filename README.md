@@ -17,7 +17,7 @@ EM-Assist helps you manage:
 
 All data lives as plain YAML and Markdown files outside this repo (default: `~/Documents/em-assist/`). The repo contains only tooling, scripts, and AI instructions. Data is never committed here.
 
-The AI assistant reads `CLAUDE.md` / `copilot-instructions.md` to understand how to navigate and update your data. You talk to it in natural language; it reads and writes the right files.
+The AI assistant reads `CLAUDE.md` / `.github/copilot-instructions.md` to understand how to navigate and update your data. You talk to it in natural language; it reads and writes the right files.
 
 ---
 
@@ -113,10 +113,10 @@ See `CLAUDE.md` for full schema documentation.
 
 ## AI assistant instructions
 
-- **GitHub Copilot**: `copilot-instructions.md` is auto-loaded by Copilot in VS Code.
+- **GitHub Copilot**: `.github/copilot-instructions.md` is auto-loaded by GitHub Copilot.
 - **Claude Code**: `CLAUDE.md` is auto-loaded by Claude Code.
 
-Both files are kept in sync — they contain identical instructions.
+Keep `.github/copilot-instructions.md` and `CLAUDE.md` aligned when workflows or data schemas change.
 
 ---
 
